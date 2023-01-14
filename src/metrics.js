@@ -6,22 +6,22 @@ class Metrics {
     const labelNames = ['method', 'uri', 'code'];
     this.httpRequestsTotalCounter = new Prometheus.Counter({
       labelNames,
-      name: 'http_requests_total',
+      name: 'nodejs_http_requests_total',
       help: 'Total number of HTTP requests',
     });
     this.httpRequestSizeBytesSummary = new Prometheus.Summary({
       labelNames,
-      name: 'http_request_size_bytes',
+      name: 'nodejs_http_request_size_bytes',
       help: 'Duration of HTTP requests size in bytes',
     });
     this.httpResponseSizeBytesSummary = new Prometheus.Summary({
       labelNames,
-      name: 'http_response_size_bytes',
+      name: 'nodejs_http_response_size_bytes',
       help: 'Duration of HTTP response size in bytes',
     });
     this.httpServerRequestsSecondsHistogram = new Prometheus.Histogram({
       labelNames,
-      name: 'http_server_requests_seconds',
+      name: 'nodejs_http_server_requests_seconds',
       help: 'Duration of HTTP requests in seconds',
       buckets: Prometheus.exponentialBuckets(0.05, 1.3, 20),
     });
